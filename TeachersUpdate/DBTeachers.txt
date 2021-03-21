@@ -1,0 +1,6 @@
+﻿4|Roger|Bacon|Economics
+5|Aaron|Burr|History
+1|Bill|Jones|Math
+2|Jim|Jones|Science
+6|Bill|Shakespeare|English
+3|John|Smith|Science
