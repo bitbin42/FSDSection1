@@ -170,13 +170,12 @@ namespace TeachersUpdate {
       }
     }
   else {
-    using (TeacherEntry oDataEntry = new TeacherEntry(PROMPTCOLOR, DEFAULTCOLOR)) {
-      string sFirst="";
-      string sLast="";
-      string sDept="";
-      oDataEntry.GetAllData(ref sFirst,ref sLast,ref sDept);
-      AddTeacher(sFirst,sLast,sDept);
-      }
+    string sFirst="";
+    string sLast="";
+    string sDept="";
+    TeacherEntryBase oDataEntry = new TeacherEntry(PROMPTCOLOR, DEFAULTCOLOR);
+    oDataEntry.GetAllData(ref sFirst,ref sLast,ref sDept);
+    AddTeacher(sFirst,sLast,sDept);
     }
   }
 
@@ -222,9 +221,8 @@ namespace TeachersUpdate {
             sLast=oTeacher.LastName;
             sDept=oTeacher.Department;
             }
-          using (TeacherEntry oDataEntry = new TeacherEntry(PROMPTCOLOR, DEFAULTCOLOR)) {
-            oDataEntry.GetAllData(ref sFirst,ref sLast,ref sDept);
-            }
+          TeacherEntryBase oDataEntry = new TeacherEntry(PROMPTCOLOR, DEFAULTCOLOR);
+          oDataEntry.GetAllData(ref sFirst,ref sLast,ref sDept);
           if (moFaculty.UpdateTeacher(nID,sFirst,sLast,sDept))
             WriteConsole("Teacher updated",INFOCOLOR);
           else

@@ -7,7 +7,7 @@ namespace TeachersUpdate {
   /// <summary>
   /// Used to handle data entry
   /// </summary>
-  public abstract class TeacherEntryBase : IDisposable {
+  public abstract class TeacherEntryBase {
 
   /// <summary>
   /// Color for prompt text
@@ -26,13 +26,6 @@ namespace TeachersUpdate {
   public TeacherEntryBase(ConsoleColor PromptColor,ConsoleColor EntryColor) {
   this.PromptColor=PromptColor;
   this.EntryColor=EntryColor;
-  }
-
-  /// <summary>
-  /// Clean up
-  /// </summary>
-  public void Dispose() {
-  // no dispose needed (yet)
   }
 
   /// <summary>

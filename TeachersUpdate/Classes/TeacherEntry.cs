@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace TeachersUpdate {
-  public class TeacherEntry : TeacherEntryBase, IDisposable {
+  public class TeacherEntry : TeacherEntryBase {
 
     /// <inheritdoc />
     public TeacherEntry(ConsoleColor PromptColor, ConsoleColor EntryColor) : base(PromptColor, EntryColor) {}
-
-    /// <summary>
-    /// Clean up
-    /// </summary>
-    public new void Dispose() {
-    base.Dispose();
-    }
 
     /// <inheritdoc />
     public override string GetDepartment(string DefaultValue="") {
