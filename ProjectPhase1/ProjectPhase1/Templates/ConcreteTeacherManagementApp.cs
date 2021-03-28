@@ -25,13 +25,13 @@ namespace ProjectPhase1.Templates
             teachersRepository.Save(_teachers.Values);
         }
 
-        protected override int getOption()
+        protected override int getNumericValue()
         {
             int option=-1;
             while (option<1) {
               string optionAsString=Console.ReadLine().Trim();
               if (int.TryParse(optionAsString,out option)==false || option<1)
-                Console.WriteLine("Please enter a positive integer");
+                Console.Write("Please enter a positive integer: ");
               }
             return option;
         }
@@ -51,7 +51,7 @@ namespace ProjectPhase1.Templates
         protected override void deleteTeacher()
         {
             Console.WriteLine("Enter ID of teacher to delete");
-            var id = getOption();
+            var id = getNumericValue();
 
             if (!_teachers.ContainsKey(id))
             {
@@ -67,7 +67,7 @@ namespace ProjectPhase1.Templates
         protected override void findTeacher()
         {
             Console.WriteLine("Enter ID of teacher to find");
-            var id = getOption();
+            var id = getNumericValue();
            
             if (!_teachers.ContainsKey(id))
             {
@@ -92,12 +92,13 @@ namespace ProjectPhase1.Templates
         protected override void sortTeachers()
         {
             Console.WriteLine("You chose to sort teachers");
-            Console.WriteLine("How would you like to sort them?");
+            Console.WriteLine("You can sort by any of these options:");
             Console.WriteLine("1) ID");
             Console.WriteLine("2) Last Name");
             Console.WriteLine("3) First Name");
+            Console.Write("How would you like to sort them? ");
 
-            var option = getOption();
+            var option = getNumericValue();
             ISortTeachersStrategy sortStrategy = null;
             switch (option)
             {
@@ -116,7 +117,7 @@ namespace ProjectPhase1.Templates
         protected override void updateTeacher()
         {
             Console.WriteLine("Enter ID of teacher to update");
-            var id = getOption();
+            var id = getNumericValue();
             if (!_teachers.ContainsKey(id))
             {
                 Console.WriteLine($"Did not find teacher with id: {id}");

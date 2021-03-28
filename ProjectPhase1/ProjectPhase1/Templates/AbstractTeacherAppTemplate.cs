@@ -12,13 +12,14 @@ namespace ProjectPhase1.Templates
 
         public void Run()
         {
+            Console.WriteLine("Welcome to Teacher Maintenance");
             var exit = false;
             while (!exit)
             {
                 displayMenu();
                  Console.Write("What would you like to do? ");
 
-                var option = getOption();
+                var option = getNumericValue();
 
                 switch (option)
                 {
@@ -39,6 +40,7 @@ namespace ProjectPhase1.Templates
 
         private void displayMenu()
         {
+            Console.WriteLine("");
             Console.WriteLine("Options:");
             Console.WriteLine("1) Load teachers");
             Console.WriteLine("2) Save teachers");
@@ -51,7 +53,7 @@ namespace ProjectPhase1.Templates
             Console.WriteLine("9) Exit");
         }
 
-        protected abstract int getOption();
+        protected abstract int getNumericValue();
         protected abstract void loadTeachers(); 
         protected abstract void saveTeachers(); 
         protected abstract void addTeacher(); 

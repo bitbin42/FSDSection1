@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TeachersUpdate {
 
   /// <inheritdoc />
-  public class Faculty : IFaculty {
+  public class Faculty : IFaculty,IDisposable {
 
     /// <inheritdoc />
     public Exception LastException {get; private set;}
@@ -53,6 +53,13 @@ namespace TeachersUpdate {
         }
       }
     mbDirty=false;
+    }
+
+    /// <summary>
+    /// Clean up
+    /// </summary>
+    public void Dispose() {
+    moStorage?.Dispose();
     }
 
     /// <summary>
@@ -231,27 +238,15 @@ namespace TeachersUpdate {
   }
 
   /// <summary>
-  /// Run an insertion sort to rebuild the list in order (this does not  count as a change in the data for saving)
+  /// Sort the teahcer list into requested order (this does not  count as a change in the data for saving)
   /// </summary>
   /// <param name="SortOption">ITeacherSort object</param>
   public void SortTeacherList(ITeacherSort SortOption) {
-  List<ITeacher> cNew=new List<ITeacher>();
-  foreach (ITeacher  oTeacher1 in mcTeachers.Values) {
-    Int32 p=0;
-    while (p>=0 && p<cNew.Count) {
-      if (SortOption.IsInOrder(oTeacher1,cNew[p])) {
-        cNew.Insert(p,oTeacher1); // we found the place where this one goes
-        p=-1;
-        }
-      else
-        p++;
-      }
-    if (p==cNew.Count)
-      cNew.Add(oTeacher1); // this one goes to the end
-    }
+  SortByInsertion oSorter=new SortByInsertion();
+  IEnumerable<ITeacher> cSorted=oSorter.Sort(mcTeachers.Values,SortOption);
   // now rebuild the list
   mcTeachers=new Dictionary<int, ITeacher>();
-  foreach (ITeacher oTeacher in cNew)
+  foreach (ITeacher oTeacher in cSorted)
     mcTeachers.Add(oTeacher.ID,oTeacher);
   }
 

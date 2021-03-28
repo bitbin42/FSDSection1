@@ -17,6 +17,11 @@ namespace TeachersUpdate {
     Exception LastException {get;}
 
     /// <summary>
+    /// Clean up
+    /// </summary>
+    void Dispose();
+
+    /// <summary>
     /// Write teacher data to persistent storage
     /// </summary>
     /// <param name="Teachers">List of Teacher objects</param>

@@ -7,11 +7,18 @@ using io=System.IO;
 
 namespace TeachersUpdate {
 
-  /// <inheritdoc />
-  public class FileStorage : IPersist {
+    /// <inheritdoc />
+    public class FileStorage : IPersist, IDisposable {
 
     /// <inheritdoc />
     public Exception LastException {get; private set;}
+
+    /// <summary>
+    /// Clean up
+    /// </summary>
+    public void Dispose() {
+    // not needed (yet)
+    }
 
     /// <inheritdoc />
     public IEnumerable<ITeacher> LoadTeachers() {

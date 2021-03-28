@@ -26,7 +26,7 @@ namespace ProjectPhase1
 
         public override string ToString()
         {
-            return $"ID:{ID} FirstName:{FirstName} LastName:{LastName}"; 
+            return $"[{ID}] {LastName},{FirstName}"; 
         }
     }
 }

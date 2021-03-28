@@ -8,3 +8,8 @@ Each record has ID, First name, Last name
 * Use factory to Load/Save
 * Use strategy method for sorting (insertion sort) by ID, Last name, or First name
 * Use template method for data input
+
+
+ProjectPhase1: code based on skeleton developed during the live class sessions
+
+TeachersUpdate: code created independently

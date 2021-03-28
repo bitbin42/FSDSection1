@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeachersUpdate {
+namespace TeachersUpdate{
 
     /// <summary>
     /// Manage teacher data
@@ -20,6 +20,11 @@ namespace TeachersUpdate {
     /// Save last error encountered
     /// </summary>
     Exception LastException {get;}
+
+    /// <summary>
+    /// Clean up
+    /// </summary>
+    public void Dispose();
 
     /// <summary>
     /// Flag to tell if the data has changed
